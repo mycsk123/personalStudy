@@ -51,10 +51,18 @@
                                     <action selector="btnBusStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IZN-AS-FtR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-Xe-wBH">
+                                <rect key="frame" x="16" y="203" width="335" height="444"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="lbText" destination="qIH-Xe-wBH" id="yeo-FP-lCB"/>
                         <outlet property="tfBusNum" destination="RzH-69-Ei2" id="VZT-Ak-nu3"/>
                         <outlet property="tfBusStop" destination="6dE-lR-nyt" id="i3b-HO-93l"/>
                     </connections>

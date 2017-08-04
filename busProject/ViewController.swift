@@ -9,11 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController, XMLParserDelegate {
+
     
-    var busInfo: BusInfo = BusInfo()
+    var bus: xmlBusInfo = xmlBusInfo()
 
     @IBOutlet weak var tfBusNum: UITextField!
     @IBOutlet weak var tfBusStop: UITextField!
+    
+    @IBOutlet weak var lbText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +29,21 @@ class ViewController: UIViewController, XMLParserDelegate {
     }
 
     @IBAction func btnBusNum(_ sender: UIButton) {
-        //getXmlInfo()
+        
+        bus.searchBusNum(busNum: tfBusNum.text!)
+        
+        var tempStr: String = ""
+        
+        for i in 0..<bus.busInfoData.count{
+            tempStr += " [ " + bus.busInfoData[i].buslinenum + ", " + bus.busInfoData[i].bustype + " ] "
+            
+            lbText.numberOfLines += 1
+
+        }
+        
+        lbText.text = tempStr
+
+
     }
     
     @IBAction func btnBusStop(_ sender: UIButton) {
