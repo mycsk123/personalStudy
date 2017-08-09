@@ -6,6 +6,9 @@
          contextName = "xmlBusInfo.parser(XMLParser, foundCharacters : String) -&gt; ():BusInfo.swift">
          <PersistentStrings>
             <PersistentString
+               value = "xmlErrResult">
+            </PersistentString>
+            <PersistentString
                value = "busInfoData">
             </PersistentString>
             <PersistentString

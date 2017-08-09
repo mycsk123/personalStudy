@@ -32,16 +32,7 @@ class ViewController: UIViewController, XMLParserDelegate {
         
         bus.searchBusNum(busNum: tfBusNum.text!)
         
-        var tempStr: String = ""
         
-        for i in 0..<bus.busInfoData.count{
-            tempStr += " [ " + bus.busInfoData[i].buslinenum + ", " + bus.busInfoData[i].bustype + " ] "
-            
-            lbText.numberOfLines += 1
-
-        }
-        
-        lbText.text = tempStr
 
 
     }
@@ -50,6 +41,9 @@ class ViewController: UIViewController, XMLParserDelegate {
     }
     
 
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 
 }
 
