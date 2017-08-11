@@ -41,7 +41,7 @@
                                 <state key="normal" title="검색"/>
                                 <connections>
                                     <action selector="btnBusNum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fJd-g8-D3u"/>
-                                    <segue destination="G0w-UG-RfM" kind="show" id="W2B-V0-rgu"/>
+                                    <segue destination="G0w-UG-RfM" kind="show" id="Erq-rQ-omv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-Ke-wIZ">
@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
+        <!--Sec View Controller-->
         <scene sceneID="cy8-0T-acJ">
             <objects>
-                <viewController id="G0w-UG-RfM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bus" id="G0w-UG-RfM" customClass="SecViewController" customModule="busProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g0G-zh-ejY"/>
                         <viewControllerLayoutGuide type="bottom" id="1DX-R9-f8p"/>
@@ -83,12 +83,24 @@
                     <view key="view" contentMode="scaleToFill" id="VFC-q6-xZF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc9-ve-2LI">
+                                <rect key="frame" x="56" y="238" width="286" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="lbText" destination="uc9-ve-2LI" id="Aqy-qc-dUq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNy-pT-tob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="-97"/>
+            <point key="canvasLocation" x="901.60000000000002" y="-97.601199400299862"/>
         </scene>
     </scenes>
 </document>

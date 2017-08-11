@@ -31,13 +31,14 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
     
     var isResultCode: Bool
     
+    
     //리턴값이 "00"일 경우에만 정상 출력(But 값이 00이라도 값이 제대로 들어오지 않는 경우 발생)
     var xmlErrCode: String
     
     var busInfoData: [BusInfos]
     
     override init() {
-
+    
         endPoint = "http://data.busan.go.kr/openBus/service/busanBIMS2/"
         serviceKey = "slg7RJ8L%2FCOauR%2FaIz85i2dqPOIbESUB2oT83luBfprZZQy5C5t9gdyOn7FwwPFHMAMpgwZadPce0vCiDFiQLg%3D%3D"
         xmlBusInfo = ""

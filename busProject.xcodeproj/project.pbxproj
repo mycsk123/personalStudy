@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76098FE71F3D2DF2007BF698 /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76098FE61F3D2DF2007BF698 /* SecViewController.swift */; };
 		7623847F1F316BDF0046FFBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7623847E1F316BDF0046FFBD /* AppDelegate.swift */; };
 		762384811F316BDF0046FFBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384801F316BDF0046FFBD /* ViewController.swift */; };
 		762384841F316BDF0046FFBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762384821F316BDF0046FFBD /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76098FE61F3D2DF2007BF698 /* SecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
 		7623847B1F316BDF0046FFBD /* busProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = busProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7623847E1F316BDF0046FFBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		762384801F316BDF0046FFBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				762384871F316BDF0046FFBD /* LaunchScreen.storyboard */,
 				7623848A1F316BDF0046FFBD /* Info.plist */,
 				762384AC1F3174B90046FFBD /* BusInfo.swift */,
+				76098FE61F3D2DF2007BF698 /* SecViewController.swift */,
 			);
 			path = busProject;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76098FE71F3D2DF2007BF698 /* SecViewController.swift in Sources */,
 				762384AD1F3174B90046FFBD /* BusInfo.swift in Sources */,
 				762384811F316BDF0046FFBD /* ViewController.swift in Sources */,
 				7623847F1F316BDF0046FFBD /* AppDelegate.swift in Sources */,
@@ -511,6 +515,7 @@
 				762384A51F316BDF0046FFBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		762384A61F316BDF0046FFBD /* Build configuration list for PBXNativeTarget "busProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +524,7 @@
 				762384A81F316BDF0046FFBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		762384A91F316BDF0046FFBD /* Build configuration list for PBXNativeTarget "busProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +533,7 @@
 				762384AB1F316BDF0046FFBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

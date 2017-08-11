@@ -31,9 +31,6 @@ class ViewController: UIViewController, XMLParserDelegate {
     @IBAction func btnBusNum(_ sender: UIButton) {
         
         bus.searchBusNum(busNum: tfBusNum.text!)
-        
-        
-
 
     }
     
@@ -41,8 +38,11 @@ class ViewController: UIViewController, XMLParserDelegate {
     }
     
 
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destin = segue.destination as! SecViewController
+        
+        destin.busSec = bus
+        
     }
 
 }
