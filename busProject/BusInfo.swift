@@ -13,6 +13,7 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
     
     let endPoint: String
     let serviceKey: String
+    
     var xmlBusInfo: String
     var parser: XMLParser?
     
@@ -31,9 +32,13 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
     
     var isResultCode: Bool
     
+    var isResultMsg: Bool
+    
     
     //리턴값이 "00"일 경우에만 정상 출력(But 값이 00이라도 값이 제대로 들어오지 않는 경우 발생)
     var xmlErrCode: String
+    var xmlErrMsg: String
+    //에러코드와 메시지가 정확하지 않음. 개인적으로 예외처리 필요
     
     var busInfoData: [BusInfos]
     
@@ -59,12 +64,17 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
         isheadwayPeak = false
         
         isResultCode = false
+        isResultMsg = false
         
         busInfoData = [BusInfos]()
         xmlErrCode = ""
+        xmlErrMsg = ""
     }
     
     //새로 파싱할때 클래스 배열은 초기화(.remove)할 것
+    func initData(){
+        busInfoData.removeAll()
+    }
     
     //init 초기화를 그대로 받는 방법은?
 //    init(temp: String){
@@ -72,6 +82,7 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
 //        serviceKey = temp
 //    }
     
+    //버스번호 검색
     func searchBusNum(busNum : String){
         
         xmlBusInfo = endPoint + "busInfo?serviceKey=" + serviceKey + "&lineno=" + busNum
@@ -93,13 +104,15 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
             isResultCode = true
         }
         
+        if(elementName == "resultMsg"){
+            isResultMsg = true
+        }
+        
         if(elementName == "buslinenum"){
             isbuslinenum = true
-        }
-        else if(elementName == "bustype"){
+        }else if(elementName == "bustype"){
             isbustype = true
-        }
-        else if(elementName == "companyid"){
+        }else if(elementName == "companyid"){
             iscompanyid = true
         }else if(elementName == "lineId"){
             islineId = true
@@ -127,6 +140,10 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
         
         if(elementName == "resultCode"){
             isResultCode = false
+        }
+        
+        if(elementName == "resultMsg"){
+            isResultMsg = false
         }
         
         if(elementName == "buslinenum"){
@@ -167,6 +184,11 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
 
         if isResultCode{
             xmlErrCode = string
+        }
+        
+        if isResultMsg{
+            xmlErrMsg = string
+            print(xmlErrMsg)
         }
         
         //xml 데이터 중 숫자 뒤에 (가 들어오면 2번에 걸쳐 데이터가 완성되므로 예외처리 필요
@@ -217,6 +239,7 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
 
 }
 
+//버스 기본 정보 저장을 위한 클래스
 class BusInfos{
     var buslinenum: String //버스 번호
     var bustype: String //일반, 마을, 급행
@@ -245,5 +268,42 @@ class BusInfos{
         headwayNorm = ""
         headwayPeak = ""
     }
+    
+}
+
+//노선 정류소 조회
+class BusInfoByRouteid {
+    var arsNo: String //정류소 번호
+    var avgtm: String //평균시간
+    var bstopIdx: String //노선 정류소 순번
+    var bstopnm: String //정류소 이름
+    var carNo: String //버스 차량번호
+    var direction: String //버스 운행 방향
+    var gpsTm: String //HH24:MI:SS형식
+    var lat: String //버스GPS X좌표
+    var lon: String //버스GPS Y좌표
+    var lineNo: String //노선번호
+    var lowplate: String //노드ID
+    var nodeId: String //노드종류(0: 교차로, 3:정류소)
+    var nodeKn: String //0: 일반, 1: 회차지
+    var rpoint: String //0: 일반, 1: 저상
+    
+    init() {
+        arsNo = ""
+        avgtm = ""
+        bstopIdx = ""
+        bstopnm = ""
+        carNo = ""
+        direction = ""
+        gpsTm = ""
+        lat = ""
+        lon = ""
+        lineNo = ""
+        lowplate = ""
+        nodeId = ""
+        nodeKn = ""
+        rpoint = ""
+    }
+
     
 }

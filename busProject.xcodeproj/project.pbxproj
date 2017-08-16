@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76098FE71F3D2DF2007BF698 /* SecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76098FE61F3D2DF2007BF698 /* SecViewController.swift */; };
 		7623847F1F316BDF0046FFBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7623847E1F316BDF0046FFBD /* AppDelegate.swift */; };
 		762384811F316BDF0046FFBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384801F316BDF0046FFBD /* ViewController.swift */; };
 		762384841F316BDF0046FFBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 762384821F316BDF0046FFBD /* Main.storyboard */; };
@@ -16,6 +15,8 @@
 		762384941F316BDF0046FFBD /* busProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384931F316BDF0046FFBD /* busProjectTests.swift */; };
 		7623849F1F316BDF0046FFBD /* busProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7623849E1F316BDF0046FFBD /* busProjectUITests.swift */; };
 		762384AD1F3174B90046FFBD /* BusInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384AC1F3174B90046FFBD /* BusInfo.swift */; };
+		7684D4411F4410B9007A9190 /* BusSeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4401F4410B9007A9190 /* BusSeachViewController.swift */; };
+		7684D4431F4411AF007A9190 /* BusSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		76098FE61F3D2DF2007BF698 /* SecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecViewController.swift; sourceTree = "<group>"; };
 		7623847B1F316BDF0046FFBD /* busProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = busProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7623847E1F316BDF0046FFBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		762384801F316BDF0046FFBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		7623849E1F316BDF0046FFBD /* busProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busProjectUITests.swift; sourceTree = "<group>"; };
 		762384A01F316BDF0046FFBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		762384AC1F3174B90046FFBD /* BusInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusInfo.swift; sourceTree = "<group>"; };
+		7684D4401F4410B9007A9190 /* BusSeachViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeachViewController.swift; sourceTree = "<group>"; };
+		7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +103,15 @@
 		7623847D1F316BDF0046FFBD /* busProject */ = {
 			isa = PBXGroup;
 			children = (
+				7684D4441F442175007A9190 /* BusInfo */,
 				7623847E1F316BDF0046FFBD /* AppDelegate.swift */,
 				762384801F316BDF0046FFBD /* ViewController.swift */,
 				762384821F316BDF0046FFBD /* Main.storyboard */,
 				762384851F316BDF0046FFBD /* Assets.xcassets */,
 				762384871F316BDF0046FFBD /* LaunchScreen.storyboard */,
 				7623848A1F316BDF0046FFBD /* Info.plist */,
-				762384AC1F3174B90046FFBD /* BusInfo.swift */,
-				76098FE61F3D2DF2007BF698 /* SecViewController.swift */,
+				7684D4401F4410B9007A9190 /* BusSeachViewController.swift */,
+				7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */,
 			);
 			path = busProject;
 			sourceTree = "<group>";
@@ -129,6 +132,14 @@
 				762384A01F316BDF0046FFBD /* Info.plist */,
 			);
 			path = busProjectUITests;
+			sourceTree = "<group>";
+		};
+		7684D4441F442175007A9190 /* BusInfo */ = {
+			isa = PBXGroup;
+			children = (
+				762384AC1F3174B90046FFBD /* BusInfo.swift */,
+			);
+			name = BusInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76098FE71F3D2DF2007BF698 /* SecViewController.swift in Sources */,
 				762384AD1F3174B90046FFBD /* BusInfo.swift in Sources */,
+				7684D4431F4411AF007A9190 /* BusSearchTableViewCell.swift in Sources */,
 				762384811F316BDF0046FFBD /* ViewController.swift in Sources */,
 				7623847F1F316BDF0046FFBD /* AppDelegate.swift in Sources */,
+				7684D4411F4410B9007A9190 /* BusSeachViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
