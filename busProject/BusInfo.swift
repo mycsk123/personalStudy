@@ -12,7 +12,7 @@ import UIKit
 class xmlBusInfo:NSObject, XMLParserDelegate{
     
     let endPoint: String
-    let serviceKey: String
+    var serviceKey: String
     
     var xmlBusInfo: String
     var parser: XMLParser?
@@ -75,12 +75,6 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
     func initData(){
         busInfoData.removeAll()
     }
-    
-    //init 초기화를 그대로 받는 방법은?
-//    init(temp: String){
-//        
-//        serviceKey = temp
-//    }
     
     //버스번호 검색
     func searchBusNum(busNum : String){
@@ -149,11 +143,9 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
         if(elementName == "buslinenum"){
             isbuslinenum = false
             busInfoTemp.removeAll()
-        }
-        else if(elementName == "bustype"){
+        }else if(elementName == "bustype"){
             isbustype = false
-        }
-        else if(elementName == "companyid"){
+        }else if(elementName == "companyid"){
             iscompanyid = false
         }else if(elementName == "lineId"){
             islineId = false
@@ -212,8 +204,7 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
         }
         else if isbustype{
             busInfoData[busInfoData.count - 1].bustype = string
-        }
-        else if iscompanyid{
+        }else if iscompanyid{
             busInfoData[busInfoData.count - 1].companyid = string
         }else if islineId{
             busInfoData[busInfoData.count - 1].lineId = string
@@ -271,39 +262,3 @@ class BusInfos{
     
 }
 
-//노선 정류소 조회
-class BusInfoByRouteid {
-    var arsNo: String //정류소 번호
-    var avgtm: String //평균시간
-    var bstopIdx: String //노선 정류소 순번
-    var bstopnm: String //정류소 이름
-    var carNo: String //버스 차량번호
-    var direction: String //버스 운행 방향
-    var gpsTm: String //HH24:MI:SS형식
-    var lat: String //버스GPS X좌표
-    var lon: String //버스GPS Y좌표
-    var lineNo: String //노선번호
-    var lowplate: String //노드ID
-    var nodeId: String //노드종류(0: 교차로, 3:정류소)
-    var nodeKn: String //0: 일반, 1: 회차지
-    var rpoint: String //0: 일반, 1: 저상
-    
-    init() {
-        arsNo = ""
-        avgtm = ""
-        bstopIdx = ""
-        bstopnm = ""
-        carNo = ""
-        direction = ""
-        gpsTm = ""
-        lat = ""
-        lon = ""
-        lineNo = ""
-        lowplate = ""
-        nodeId = ""
-        nodeKn = ""
-        rpoint = ""
-    }
-
-    
-}

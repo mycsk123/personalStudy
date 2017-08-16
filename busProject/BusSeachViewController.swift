@@ -32,25 +32,36 @@ class BusSeachViewController: UIViewController, UITableViewDelegate, UITableView
         return (busNumSearch?.busInfoData.count)!
     }
 
-    @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "busSeachResult", for: indexPath) as! BusSearchTableViewCell
         
         let row = indexPath.row
         
+        //정보전달을 위해 각 텍스트 색상 및 크기 수정 필요
+        cell.lbBusNum.textColor = UIColor.blue
         cell.lbBusNum.text = busNumSearch?.busInfoData[row].buslinenum
         
         cell.lbBusPoint.text = (busNumSearch?.busInfoData[row].startpoint)! + "↔" + (busNumSearch?.busInfoData[row].endpoint)!
+        /*
+        var tempStr1: String = "첫차 " + (busNumSearch?.busInfoData[row].firsttime)! + ", 막차 " + (busNumSearch?.busInfoData[row].endtime)!
+        var tempStr2: String = " | 배차간격 " + (busNumSearch?.busInfoData[row].headway)! + "분"
         
-        //cell.lbBusEct
+        cell.lbBusEct.text = tempStr1 + tempStr2
+ */
+        //cell.lbBusEct.tex
         
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if segue.identifier == "sgDetail" {
+            let cell = sender as! BusSearchTableViewCell
+            let indexPath = self.tbNumResult.indexPath(for: cell)
             
+            let busSelect = segue.destination as! BusRouteidViewController
+            busSelect.routeId = (busNumSearch?.busInfoData[(indexPath?.row)!].lineId)!
         }
     }
 
