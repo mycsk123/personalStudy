@@ -43,13 +43,11 @@ class BusSeachViewController: UIViewController, UITableViewDelegate, UITableView
         cell.lbBusNum.text = busNumSearch?.busInfoData[row].buslinenum
         
         cell.lbBusPoint.text = (busNumSearch?.busInfoData[row].startpoint)! + "↔" + (busNumSearch?.busInfoData[row].endpoint)!
-        /*
+        
         var tempStr1: String = "첫차 " + (busNumSearch?.busInfoData[row].firsttime)! + ", 막차 " + (busNumSearch?.busInfoData[row].endtime)!
         var tempStr2: String = " | 배차간격 " + (busNumSearch?.busInfoData[row].headway)! + "분"
         
         cell.lbBusEct.text = tempStr1 + tempStr2
- */
-        //cell.lbBusEct.tex
         
         return cell
     }

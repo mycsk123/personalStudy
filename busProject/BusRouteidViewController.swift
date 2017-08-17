@@ -10,6 +10,8 @@ import UIKit
 
 class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     var routeId: String = ""
     var busRouteid: xmlBusInfoByRouteid = xmlBusInfoByRouteid()
     
@@ -22,6 +24,7 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         tbRouteResult.dataSource = self
         
         busRouteid.searchBusNum(routeId: routeId)
+        print(busRouteid.busRouteidData.count)
         
         // Do any additional setup after loading the view.
     }

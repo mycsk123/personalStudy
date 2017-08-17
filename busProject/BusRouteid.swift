@@ -154,7 +154,6 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
     var isAction: Bool = false
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        print(string)
 
         if isarsNo{
             isAction = true

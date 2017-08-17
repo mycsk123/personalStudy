@@ -207,10 +207,19 @@
                                         <connections>
                                             <outlet property="lbBstopnm" destination="Q6Z-RT-3LA" id="LSA-u9-OcY"/>
                                             <outlet property="lbCarNo" destination="F0f-s4-mHO" id="7pE-Iq-jFn"/>
+                                            <segue destination="xzB-q6-xUv" kind="show" identifier="sgBStopMap" id="4aA-oX-9RL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZT-pz-fvr">
+                                <rect key="frame" x="24" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="이전"/>
+                                <connections>
+                                    <segue destination="GUg-vr-d40" kind="unwind" unwindAction="returnedWithSegue:" id="ip5-ao-bLm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -219,8 +228,36 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voH-6z-dUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GUg-vr-d40" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1784.8" y="53.523238380809602"/>
+        </scene>
+        <!--Stop Map View Controller-->
+        <scene sceneID="LbB-RC-hDf">
+            <objects>
+                <viewController id="xzB-q6-xUv" customClass="BStopMapViewController" customModule="busProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1cD-EJ-PPG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cnp-Dk-ggN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4NR-zV-5O5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VWn-bC-yK4">
+                                <rect key="frame" x="16" y="120" width="343" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="BStopMap" destination="VWn-bC-yK4" id="l9a-2z-4kS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wrt-vL-79I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512.8000000000002" y="62.518740629685162"/>
         </scene>
     </scenes>
 </document>
