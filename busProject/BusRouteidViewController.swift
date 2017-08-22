@@ -50,6 +50,19 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "sgBStopMap" {
+            
+            let cell = sender as! BusRouteidTableViewCell
+            let indexPath = self.tbRouteResult.indexPath(for: cell)
+            
+            let busStopSelect = segue.destination as! BStopMapViewController
+            busStopSelect.arsno = busRouteid.busRouteidData[(indexPath?.row)!].arsNo
+            busStopSelect.bstopnm = busRouteid.busRouteidData[(indexPath?.row)!].bstopnm
+            
+        }
+    }
    
 
 

@@ -13,7 +13,7 @@ class xmlBStopList:NSObject, XMLParserDelegate {
     let endPoint: String
     var serviceKey: String
     
-    var xmlBusInfo: String
+    var xmlBStop: String
     var parser: XMLParser?
     
     var isbstopArsno: Bool
@@ -28,7 +28,7 @@ class xmlBStopList:NSObject, XMLParserDelegate {
     override init(){
         endPoint = "http://data.busan.go.kr/openBus/service/busanBIMS2/"
         serviceKey = "slg7RJ8L%2FCOauR%2FaIz85i2dqPOIbESUB2oT83luBfprZZQy5C5t9gdyOn7FwwPFHMAMpgwZadPce0vCiDFiQLg%3D%3D"
-        xmlBusInfo = ""
+        xmlBStop = ""
         
         parser = nil
         
@@ -47,16 +47,29 @@ class xmlBStopList:NSObject, XMLParserDelegate {
         
         for i in 0..<bstopNum.count {
             
-            //bstopArsno 값이 없는 경우도 존재. 그러므로 키값으로 부적합. 다른 방안 생각해 볼것
-            xmlBusInfo = endPoint + "busStop?serviceKey=" + serviceKey + "&arsno=" + bstopNum[i].arsNo
+            bStopData.append(BStopInfo())
             
-            let url = URL(string: xmlBusInfo)
-            
-            parser = XMLParser(contentsOf: url!)
-            
-            parser?.delegate = self
-            
-            parser?.parse()
+            if(bstopNum[i].arsNo != nil){
+                
+                //bstopArsno 값이 없는 경우도 존재. 그러므로 키값으로 부적합. 다른 방안 생각해 볼것
+                //정확도를 위해 정류소 명과 번호를 동시 입력 검사
+                
+                xmlBStop = endPoint + "busStop?serviceKey=" + serviceKey + "&bstopnm=" + bstopNum[i].bstopnm + "&arsno=" + bstopNum[i].arsNo
+
+                
+                let url = URL(string: xmlBStop)
+                
+                parser = XMLParser(contentsOf: url!)
+                
+                parser?.delegate = self
+                
+                parser?.parse()
+            }
+            else{
+                //arsNo이 없을 경우 대비 - 값이 없을 땐 배열생성만 하고...
+                print("값이 없음")
+            }
+
         }
 
     }
@@ -97,20 +110,23 @@ class xmlBStopList:NSObject, XMLParserDelegate {
         }
     }
     
+    //arsNo값이 없는 경우도 존재. 키값을 정할 것(데이터가 없어서 append로 생성하지 못해 범위를 넘어섬)
+    
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         if isbstopArsno{
-            
+            bStopData[bStopData.count - 1].bstopArsno = string
         }else if isbstopId{
-            
+            bStopData[bStopData.count - 1].bstopId = string
         }else if isbstopNm{
+            bStopData[bStopData.count - 1].bstopNm = string
             
         }else if isgpsX{
-            
+            bStopData[bStopData.count - 1].gpsX = string
         }else if isgpsY{
-            
+            bStopData[bStopData.count - 1].gpsY = string
         }else if isstoptype{
-            
+            bStopData[bStopData.count - 1].stoptype = string
         }
 
     }

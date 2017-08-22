@@ -13,7 +13,7 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
     let endPoint: String
     var serviceKey: String
     
-    var xmlBusInfo: String
+    var xmlBusRoute: String
     var parser: XMLParser?
     
     var isarsNo: Bool
@@ -37,7 +37,7 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
         
         endPoint = "http://data.busan.go.kr/openBus/service/busanBIMS2/"
         serviceKey = "slg7RJ8L%2FCOauR%2FaIz85i2dqPOIbESUB2oT83luBfprZZQy5C5t9gdyOn7FwwPFHMAMpgwZadPce0vCiDFiQLg%3D%3D"
-        xmlBusInfo = ""
+        xmlBusRoute = ""
         
         parser = nil
         
@@ -68,9 +68,9 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
     //버스노선도 검색
     func searchBusNum(routeId : String){
         
-        xmlBusInfo = endPoint + "busInfoRoute?serviceKey=" + serviceKey + "&lineid=" + routeId
+        xmlBusRoute = endPoint + "busInfoRoute?serviceKey=" + serviceKey + "&lineid=" + routeId
         
-        let url = URL(string: xmlBusInfo)
+        let url = URL(string: xmlBusRoute)
         
         parser = XMLParser(contentsOf: url!)
         
@@ -164,6 +164,7 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
             
             if(!isAction){
                 busRouteidData.append(BusInfoByRouteid())
+                print("isavgtm 값 : " + string)
             }
             //버스번호 203번호 검색 후 노선도까지 진행 시 멈춤 현상 발생(index out of range)
             busRouteidData[busRouteidData.count - 1].avgtm = string

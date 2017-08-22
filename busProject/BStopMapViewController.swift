@@ -14,6 +14,8 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var BStopMap: MKMapView!
     
     let locationManager = CLLocationManager()
+    var bstopnm: String = "" //정류소 이름
+    var arsno: String = "" //정류소 번호
     
     override func viewDidLoad() {
         super.viewDidLoad()
