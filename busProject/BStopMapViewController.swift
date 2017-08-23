@@ -31,8 +31,7 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
-        BStopMap.showsUserLocation = true
-        
+        BStopMap.showsUserLocation = true 
 
         // Do any additional setup after loading the view.
     }
