@@ -13,12 +13,19 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var BStopMap: MKMapView!
     
+    var busRouteid: xmlBusInfoByRouteid? = nil
+    
+    var bstopList: xmlBStopList = xmlBStopList()
+    
     let locationManager = CLLocationManager()
     var bstopnm: String = "" //정류소 이름
     var arsno: String = "" //정류소 번호
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bstopList.searchBStop(bstopNum: (busRouteid?.busRouteidData)!)
+        //bstopList.bStopData.
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

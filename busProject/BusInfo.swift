@@ -79,6 +79,8 @@ class xmlBusInfo:NSObject, XMLParserDelegate{
     //버스번호 검색
     func searchBusNum(busNum : String){
         
+        // 비동기로 차후 변경 DispatchQueue
+        
         xmlBusInfo = endPoint + "busInfo?serviceKey=" + serviceKey + "&lineno=" + busNum
         
         let url = URL(string: xmlBusInfo)

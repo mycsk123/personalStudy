@@ -20,6 +20,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "xmlBStopList.searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ():BusStop.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "xmlBStop">
+            </PersistentString>
+            <PersistentString
+               value = "url">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ViewController.btnBusNum(UIButton) -&gt; ():ViewController.swift">
          <PersistentStrings>
             <PersistentString

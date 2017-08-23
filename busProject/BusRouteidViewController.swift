@@ -9,9 +9,7 @@
 import UIKit
 
 class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
+
     var routeId: String = ""
     var busRouteid: xmlBusInfoByRouteid = xmlBusInfoByRouteid()
     
@@ -57,9 +55,13 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
             let cell = sender as! BusRouteidTableViewCell
             let indexPath = self.tbRouteResult.indexPath(for: cell)
             
+            let temp: Int = (indexPath?.row)!
+            print(temp)
+            
             let busStopSelect = segue.destination as! BStopMapViewController
             busStopSelect.arsno = busRouteid.busRouteidData[(indexPath?.row)!].arsNo
             busStopSelect.bstopnm = busRouteid.busRouteidData[(indexPath?.row)!].bstopnm
+            busStopSelect.busRouteid = busRouteid
             
         }
     }
