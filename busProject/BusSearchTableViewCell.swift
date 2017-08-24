@@ -10,6 +10,9 @@ import UIKit
 
 class BusSearchTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var imgBStyle: UIImageView!
+    
     @IBOutlet weak var lbBusNum: UILabel!
     
     @IBOutlet weak var lbBusPoint: UILabel!

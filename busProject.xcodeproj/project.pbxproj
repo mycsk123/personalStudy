@@ -15,6 +15,16 @@
 		762384941F316BDF0046FFBD /* busProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384931F316BDF0046FFBD /* busProjectTests.swift */; };
 		7623849F1F316BDF0046FFBD /* busProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7623849E1F316BDF0046FFBD /* busProjectUITests.swift */; };
 		762384AD1F3174B90046FFBD /* BusInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762384AC1F3174B90046FFBD /* BusInfo.swift */; };
+		7666C4D51F4E902B0025AABB /* BusStyle01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4D31F4E902B0025AABB /* BusStyle01.jpg */; };
+		7666C4DC1F4E97DE0025AABB /* BusStyle02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4D71F4E97DE0025AABB /* BusStyle02.jpg */; };
+		7666C4DD1F4E97DE0025AABB /* BusStyle03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4D81F4E97DE0025AABB /* BusStyle03.jpg */; };
+		7666C4DE1F4E97DE0025AABB /* BusStyle04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4D91F4E97DE0025AABB /* BusStyle04.jpg */; };
+		7666C4DF1F4E97DE0025AABB /* BusStyle05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4DA1F4E97DE0025AABB /* BusStyle05.jpg */; };
+		7666C4E01F4E97DE0025AABB /* BusStyle06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4DB1F4E97DE0025AABB /* BusStyle06.jpg */; };
+		7666C4E41F4EA0520025AABB /* BusInfoBackgrounds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4E31F4EA0520025AABB /* BusInfoBackgrounds.jpg */; };
+		7666C4EB1F4EAFD90025AABB /* Line01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4E91F4EAFD90025AABB /* Line01.png */; };
+		7666C4EC1F4EAFD90025AABB /* Line02.png in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4EA1F4EAFD90025AABB /* Line02.png */; };
+		7666C4EE1F4EB2600025AABB /* BusNum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7666C4ED1F4EB2600025AABB /* BusNum.jpg */; };
 		7684D4411F4410B9007A9190 /* BusSeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4401F4410B9007A9190 /* BusSeachViewController.swift */; };
 		7684D4431F4411AF007A9190 /* BusSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */; };
 		873FE2451F44A7A200A32A88 /* BusRouteidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FE2441F44A7A200A32A88 /* BusRouteidTableViewCell.swift */; };
@@ -56,6 +66,16 @@
 		7623849E1F316BDF0046FFBD /* busProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = busProjectUITests.swift; sourceTree = "<group>"; };
 		762384A01F316BDF0046FFBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		762384AC1F3174B90046FFBD /* BusInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusInfo.swift; sourceTree = "<group>"; };
+		7666C4D31F4E902B0025AABB /* BusStyle01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle01.jpg; sourceTree = "<group>"; };
+		7666C4D71F4E97DE0025AABB /* BusStyle02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle02.jpg; sourceTree = "<group>"; };
+		7666C4D81F4E97DE0025AABB /* BusStyle03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle03.jpg; sourceTree = "<group>"; };
+		7666C4D91F4E97DE0025AABB /* BusStyle04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle04.jpg; sourceTree = "<group>"; };
+		7666C4DA1F4E97DE0025AABB /* BusStyle05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle05.jpg; sourceTree = "<group>"; };
+		7666C4DB1F4E97DE0025AABB /* BusStyle06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusStyle06.jpg; sourceTree = "<group>"; };
+		7666C4E31F4EA0520025AABB /* BusInfoBackgrounds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusInfoBackgrounds.jpg; sourceTree = "<group>"; };
+		7666C4E91F4EAFD90025AABB /* Line01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line01.png; sourceTree = "<group>"; };
+		7666C4EA1F4EAFD90025AABB /* Line02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line02.png; sourceTree = "<group>"; };
+		7666C4ED1F4EB2600025AABB /* BusNum.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BusNum.jpg; sourceTree = "<group>"; };
 		7684D4401F4410B9007A9190 /* BusSeachViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeachViewController.swift; sourceTree = "<group>"; };
 		7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSearchTableViewCell.swift; sourceTree = "<group>"; };
 		873FE2441F44A7A200A32A88 /* BusRouteidTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteidTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +133,7 @@
 		7623847D1F316BDF0046FFBD /* busProject */ = {
 			isa = PBXGroup;
 			children = (
+				7666C4D21F4E900F0025AABB /* img */,
 				7684D4441F442175007A9190 /* BusInfo */,
 				7623847E1F316BDF0046FFBD /* AppDelegate.swift */,
 				762384801F316BDF0046FFBD /* ViewController.swift */,
@@ -145,6 +166,23 @@
 				762384A01F316BDF0046FFBD /* Info.plist */,
 			);
 			path = busProjectUITests;
+			sourceTree = "<group>";
+		};
+		7666C4D21F4E900F0025AABB /* img */ = {
+			isa = PBXGroup;
+			children = (
+				7666C4ED1F4EB2600025AABB /* BusNum.jpg */,
+				7666C4E91F4EAFD90025AABB /* Line01.png */,
+				7666C4EA1F4EAFD90025AABB /* Line02.png */,
+				7666C4E31F4EA0520025AABB /* BusInfoBackgrounds.jpg */,
+				7666C4D71F4E97DE0025AABB /* BusStyle02.jpg */,
+				7666C4D81F4E97DE0025AABB /* BusStyle03.jpg */,
+				7666C4D91F4E97DE0025AABB /* BusStyle04.jpg */,
+				7666C4DA1F4E97DE0025AABB /* BusStyle05.jpg */,
+				7666C4DB1F4E97DE0025AABB /* BusStyle06.jpg */,
+				7666C4D31F4E902B0025AABB /* BusStyle01.jpg */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 		7684D4441F442175007A9190 /* BusInfo */ = {
@@ -264,9 +302,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7666C4DC1F4E97DE0025AABB /* BusStyle02.jpg in Resources */,
+				7666C4DE1F4E97DE0025AABB /* BusStyle04.jpg in Resources */,
 				762384891F316BDF0046FFBD /* LaunchScreen.storyboard in Resources */,
+				7666C4D51F4E902B0025AABB /* BusStyle01.jpg in Resources */,
+				7666C4EE1F4EB2600025AABB /* BusNum.jpg in Resources */,
 				762384861F316BDF0046FFBD /* Assets.xcassets in Resources */,
+				7666C4E01F4E97DE0025AABB /* BusStyle06.jpg in Resources */,
+				7666C4EB1F4EAFD90025AABB /* Line01.png in Resources */,
+				7666C4E41F4EA0520025AABB /* BusInfoBackgrounds.jpg in Resources */,
+				7666C4DF1F4E97DE0025AABB /* BusStyle05.jpg in Resources */,
 				762384841F316BDF0046FFBD /* Main.storyboard in Resources */,
+				7666C4DD1F4E97DE0025AABB /* BusStyle03.jpg in Resources */,
+				7666C4EC1F4EAFD90025AABB /* Line02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

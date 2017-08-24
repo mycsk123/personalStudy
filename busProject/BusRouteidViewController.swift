@@ -11,9 +11,20 @@ import UIKit
 class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var routeId: String = ""
+    var busInfo: BusInfos = BusInfos()
     var busRouteid: xmlBusInfoByRouteid = xmlBusInfoByRouteid()
+    var imgBusStyle: [UIImage] = [UIImage]()
+    
+    var imgBusOn: [UIImage] = [UIImage]()
     
     @IBOutlet weak var tbRouteResult: UITableView!
+    
+    @IBOutlet weak var imgBStyle: UIImageView!
+    
+    
+    @IBOutlet weak var lbBNum: UILabel!
+    
+    @IBOutlet weak var lbBInfo: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +32,27 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         tbRouteResult.delegate = self
         tbRouteResult.dataSource = self
         
+        lbBNum.textColor = UIColor.blue
+        lbBNum.text = busInfo.buslinenum
+        lbBInfo.text = busInfo.startpoint + "↔" + busInfo.endpoint
+        
+        for i in 0..<2{
+            var tempStr = "Line0" + String(i+1) + ".png"
+            imgBusOn.append(UIImage(named: tempStr)!)
+        }
+        imgBusOn.append(UIImage(named: "BusNum.jpg")!)
+        
+        for i in 0..<6{
+            var tempStr = "BusStyle0" + String(i+1) + ".jpg"
+            imgBusStyle.append(UIImage(named: tempStr)!)
+        }
+        imgBStyle.image = busStyleDeff(busStyle: busInfo.bustype)
+        
+        
         busRouteid.searchBusNum(routeId: routeId)
         print(busRouteid.busRouteidData.count)
+        
+        
         
         //모든 노선을 파싱하기 때문에 일일트래픽을 넘어서는 상황 발생.
         //bStopList.searchBStop(bstopNum: busRouteid.busRouteidData)
@@ -47,6 +77,15 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.lbCarNo.text = busRouteid.busRouteidData[row].carNo
         cell.lbBstopnm.text = busRouteid.busRouteidData[row].bstopnm
+        
+        if((busRouteid.busRouteidData[row].carNo == nil) || (busRouteid.busRouteidData[row].carNo == "")){
+            cell.imgLine.image = self.imgBusOn[0]
+            
+        }else{
+            cell.imgLine.image = self.imgBusOn[1]
+            //아래 잔상이 남음 해결해 볼 것
+            //cell.imgBusNum.image = self.imgBusOn[2]
+        }
         
         return cell
     }
@@ -77,7 +116,28 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
-
+    func busStyleDeff(busStyle: String) -> UIImage{
+        
+        var tempImg: UIImage
+        
+        if(busStyle == "일반버스"){
+            tempImg = imgBusStyle[0]
+        }else if(busStyle == "좌석버스"){
+            tempImg = imgBusStyle[1]
+        }else if(busStyle == "급행버스"){
+            tempImg = imgBusStyle[3]
+        }else if(busStyle == "심야버스"){
+            tempImg = imgBusStyle[4]
+        }else if(busStyle == "심야버스(급행)"){
+            tempImg = imgBusStyle[4]
+        }else if(busStyle == "마을버스"){
+            tempImg = imgBusStyle[2]
+        }
+        else{
+            tempImg = imgBusStyle[5]
+        }
+        return tempImg
+    }
    
 
 

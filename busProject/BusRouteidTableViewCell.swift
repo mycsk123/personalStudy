@@ -14,6 +14,10 @@ class BusRouteidTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lbBstopnm: UILabel!
     
+    @IBOutlet weak var imgLine: UIImageView!
+    
+    @IBOutlet weak var imgBusNum: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -261,6 +261,6 @@ class BusInfos{
         headwayNorm = ""
         headwayPeak = ""
     }
-    
+        
 }
 

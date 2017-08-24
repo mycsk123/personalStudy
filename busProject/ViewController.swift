@@ -54,6 +54,7 @@ class ViewController: UIViewController, XMLParserDelegate {
         let destin = segue.destination as! BusSeachViewController
         
         destin.busNumSearch = bus
+        destin.resultBNum = tfBusNum.text!
         
     }
     
