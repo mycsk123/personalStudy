@@ -10,6 +10,9 @@ import UIKit
 
 class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+//    let date = Date()
+//    let dateFormatter = DateFormatter()
+    
     var routeId: String = ""
     var busInfo: BusInfos = BusInfos()
     var busRouteid: xmlBusInfoByRouteid = xmlBusInfoByRouteid()
@@ -25,6 +28,8 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var lbBNum: UILabel!
     
     @IBOutlet weak var lbBInfo: UILabel!
+    
+    @IBOutlet weak var lbUpdateTime: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +56,9 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         
         busRouteid.searchBusNum(routeId: routeId)
         print(busRouteid.busRouteidData.count)
-        
-        
+
+        lbUpdateTime.textColor = UIColor.darkGray
+        lbUpdateTime.text = timeSet()
         
         //모든 노선을 파싱하기 때문에 일일트래픽을 넘어서는 상황 발생.
         //bStopList.searchBStop(bstopNum: busRouteid.busRouteidData)
@@ -103,6 +109,7 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
             let busStopSelect = segue.destination as! BStopMapViewController
             busStopSelect.arsno = busRouteid.busRouteidData[(indexPath?.row)!].arsNo
             busStopSelect.bstopnm = busRouteid.busRouteidData[(indexPath?.row)!].bstopnm
+            busStopSelect.lineId = busInfo.lineId
             
         }
     }
@@ -113,7 +120,35 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func BRouteidViewReturned(segue: UIStoryboardSegue){
+        
+        //self.tbRouteResult.reloadData()
 
+    }
+    
+    
+    @IBAction func btnReload(_ sender: UIButton) {
+        //데이터 로딩 글자가 갱신 안되는 이유는??
+        //lbUpdateTime.text = "데이터 로딩 중"
+        
+        let result:Bool = busRouteid.bRouteReload(routeId: routeId, tbRouteResult: tbRouteResult)
+        
+        if(result){
+            lbUpdateTime.text = timeSet()
+        }else{
+            lbUpdateTime.text = "데이터 로딩 실패"
+        }
+        
+    }
+    
+    func timeSet() -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let time = dateFormatter.string(from: date)
+        
+        let timeTemp:String = "업데이트 시간 : " + time
+        
+        return timeTemp
     }
     
     func busStyleDeff(busStyle: String) -> UIImage{

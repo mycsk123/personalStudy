@@ -80,6 +80,37 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
         
     }
     
+    func bRouteReload(routeId: String, tbRouteResult: UITableView) -> Bool{
+        
+        xmlBusRoute = endPoint + "busInfoRoute?serviceKey=" + serviceKey + "&lineid=" + routeId
+        
+        print(xmlBusRoute)
+        let url = URL(string: xmlBusRoute)
+        
+        DispatchQueue.global(qos: .background).async {
+            
+            self.parser = XMLParser(contentsOf: url!)
+            
+            DispatchQueue.main.async {
+                self.busRouteidData.removeAll()
+                self.parser?.delegate = self
+                self.parser?.parse()
+                
+                tbRouteResult.reloadData()
+                
+                
+            }
+            
+        }
+        
+        if(busRouteidData.count != 0){
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    
     //필요 태그값에 표시하기
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         

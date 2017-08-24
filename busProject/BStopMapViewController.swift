@@ -14,6 +14,8 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var BStopMap: MKMapView!
     
     @IBOutlet weak var lbBStopInfo: UILabel!
+
+    @IBOutlet weak var lbArrBusTime: UILabel!
     
     var busRouteid: xmlBusInfoByRouteid? = nil
     
@@ -22,31 +24,41 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var bstopnm: String = "" //정류소 이름
     var arsno: String = "" //정류소 번호
+    var lineId: String = ""//버스노선 아이디
+    var tempBstopId: String = ""
+    
+    var bStopBList: xmlBStopBList = xmlBStopBList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //bstopList.searchBStop(bstopNum: (busRouteid?.busRouteidData)!)
         //bstopList.bStopData.
         
         bstopList.selectBStop(bstopnm: bstopnm, arsNo: arsno)
-        var tGpsX: Double = Double(bstopList.bStopOneData.gpsX)!
-        var tGpsY: Double = Double(bstopList.bStopOneData.gpsY)!
         
-        setAnnotation(latitude: tGpsY, longitude: tGpsX, delta: 0.005, title: bstopnm, subtitle: arsno)
+        if((arsno != nil) || (arsno != "")){
+            var tGpsX: Double = Double(bstopList.bStopOneData.gpsX)!
+            var tGpsY: Double = Double(bstopList.bStopOneData.gpsY)!
+            
+            setAnnotation(latitude: tGpsY, longitude: tGpsX, delta: 0.005, title: bstopnm, subtitle: arsno)
+
+            lbBStopInfo.text = bstopnm + " | " + arsno
+        }else{
+            //arsNo값이 없을 경우 1번에 정류장의 좌표를 찾을 수 없음
+            lbBStopInfo.text = "죄송합니다. 공사중입니다."
+        }
+        
+        tempBstopId = bstopList.bStopOneData.bstopId
         
         
+        bStopBList.searchBStopArrBus(bstopId: tempBstopId, lineId: lineId)
+        var temp1stBus = bStopBList.bStopArrBus.min1
+        var temp2stBus = bStopBList.bStopArrBus.min2
         
-        lbBStopInfo.text = bstopnm + " | " + arsno
-        
-        
-//        var bstopArsno: String //정류소번호
-//        var bstopId: String //정류소아이디
-//        var bstopNm: String //정류소명
-//        var gpsX: String //GPS X좌표
-//        var gpsY: String //GPS Y좌표
-//        var stoptype: String //정류소구분 - 일반, 마을
-        
+        lbArrBusTime.textColor = UIColor.red
+        lbArrBusTime.text = temp1stBus + "분 전 | " + temp2stBus + "분 전"
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -78,8 +90,11 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
         BStopMap.addAnnotation(annotation)
         
     }
+ 
     
-
+    @IBAction func btnReload(_ sender: UIButton) {
+        bStopBList.bBStopArrBusReload(bstopId: tempBstopId, lineId: lineId, uiLB: lbArrBusTime as! UILabel)
+    }
 
     
 

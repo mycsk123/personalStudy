@@ -50,8 +50,8 @@ class xmlBStopList:NSObject, XMLParserDelegate {
         isgpsY = false
         isstoptype = false
         
-        bStopData = [BStopInfo]()
-        bStopOneData = BStopInfo()
+        bStopData = [BStopInfo]() //버스노선 배열로 묶기 위한 것
+        bStopOneData = BStopInfo() //셀 중에 셀렉트한 것만 정보 얻기 위한 것
         
         parserUrl = [URL?]()
         

@@ -28,6 +28,7 @@
 		7684D4411F4410B9007A9190 /* BusSeachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4401F4410B9007A9190 /* BusSeachViewController.swift */; };
 		7684D4431F4411AF007A9190 /* BusSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */; };
 		873FE2451F44A7A200A32A88 /* BusRouteidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FE2441F44A7A200A32A88 /* BusRouteidTableViewCell.swift */; };
+		8765A2D01F4F3BEF00FFB4EB /* BStopArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765A2CF1F4F3BEF00FFB4EB /* BStopArr.swift */; };
 		877336AB1F46069E001290CC /* BStopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877336AA1F46069E001290CC /* BStopMapViewController.swift */; };
 		877336AD1F460CA9001290CC /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877336AC1F460CA9001290CC /* BusStop.swift */; };
 		87E70EA71F44775400F46A72 /* BusRouteidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E70EA61F44775400F46A72 /* BusRouteidViewController.swift */; };
@@ -79,6 +80,7 @@
 		7684D4401F4410B9007A9190 /* BusSeachViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSeachViewController.swift; sourceTree = "<group>"; };
 		7684D4421F4411AF007A9190 /* BusSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSearchTableViewCell.swift; sourceTree = "<group>"; };
 		873FE2441F44A7A200A32A88 /* BusRouteidTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteidTableViewCell.swift; sourceTree = "<group>"; };
+		8765A2CF1F4F3BEF00FFB4EB /* BStopArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BStopArr.swift; sourceTree = "<group>"; };
 		877336AA1F46069E001290CC /* BStopMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BStopMapViewController.swift; sourceTree = "<group>"; };
 		877336AC1F460CA9001290CC /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		87E70EA61F44775400F46A72 /* BusRouteidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteidViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				762384AC1F3174B90046FFBD /* BusInfo.swift */,
 				87E70EA81F447CEE00F46A72 /* BusRouteid.swift */,
 				877336AC1F460CA9001290CC /* BusStop.swift */,
+				8765A2CF1F4F3BEF00FFB4EB /* BStopArr.swift */,
 			);
 			name = BusInfo;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8765A2D01F4F3BEF00FFB4EB /* BStopArr.swift in Sources */,
 				877336AD1F460CA9001290CC /* BusStop.swift in Sources */,
 				87E70EA71F44775400F46A72 /* BusRouteidViewController.swift in Sources */,
 				873FE2451F44A7A200A32A88 /* BusRouteidTableViewCell.swift in Sources */,

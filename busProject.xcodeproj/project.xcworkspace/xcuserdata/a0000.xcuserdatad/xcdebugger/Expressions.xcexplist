@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "BusRouteidViewController.btnReload(UIButton) -&gt; ():BusRouteidViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "xmlBStopList.(searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ()).(closure #1):BusStop.swift">
          <PersistentStrings>
             <PersistentString
