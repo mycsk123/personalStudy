@@ -64,7 +64,9 @@ class BusSeachViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     
-    @IBAction func returned(segue: UIStoryboardSegue){
+    
+    @IBAction func BSearchViewReturned(segue: UIStoryboardSegue){
+        
         
     }
     

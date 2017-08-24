@@ -26,11 +26,19 @@ class xmlBStopList:NSObject, XMLParserDelegate {
     var bStopData: [BStopInfo]
     var parserUrl: [URL?]
     
+    var bStopOneData: BStopInfo
+    var isSelectBStop: Bool
+    
     var parserArr : [XMLParser?]
+    
+    var isThreadStop: Bool
     
     override init(){
         endPoint = "http://data.busan.go.kr/openBus/service/busanBIMS2/"
-        serviceKey = "slg7RJ8L%2FCOauR%2FaIz85i2dqPOIbESUB2oT83luBfprZZQy5C5t9gdyOn7FwwPFHMAMpgwZadPce0vCiDFiQLg%3D%3D"
+        //serviceKey = "slg7RJ8L%2FCOauR%2FaIz85i2dqPOIbESUB2oT83luBfprZZQy5C5t9gdyOn7FwwPFHMAMpgwZadPce0vCiDFiQLg%3D%3D"
+        
+        serviceKey = "bvT47Ci%2BTSiAy8Z9w13CSYEpDh%2BFou8SkNNuxx9kk97c2m1NukWhSB5x0Xil%2BsJ1Q9z5I2e25%2FrjzBdr89upIA%3D%3D"
+        
         xmlBStop = ""
         
         parser = nil
@@ -43,15 +51,53 @@ class xmlBStopList:NSObject, XMLParserDelegate {
         isstoptype = false
         
         bStopData = [BStopInfo]()
+        bStopOneData = BStopInfo()
         
         parserUrl = [URL?]()
         
         parserArr = [XMLParser?]()
+        
+        isThreadStop = false
+        isSelectBStop = false
     }
 
+    func selectBStop(bstopnm: String, arsNo: String){
+        
+        isSelectBStop = true
+        
+        if(arsNo != nil || arsNo != ""){
+            xmlBStop = endPoint + "busStop?serviceKey=" + serviceKey + "&bstopnm=" + bstopnm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)! + "&arsno=" + arsNo
+            
+            let url = URL(string: xmlBStop)
+            
+            parser = XMLParser(contentsOf: url!)
+            
+            parser?.delegate = self
+            
+            parser?.parse()
+            
+            isSelectBStop = false
+        
+        }
+    }
+    
+    
     //정류소 번호로 검색(정류소 번호 배열로 받아 처리)
     func searchBStop(bstopNum: [BusInfoByRouteid]){
-                
+        
+        isThreadStop = true
+
+        //새로 검색할 때 이전 자료 모두 초기화
+        if(bStopData.count != 0){
+            bStopData.removeAll()
+        }
+        if(parserUrl.count != 0){
+            parserUrl.removeAll()
+        }
+        if(parserArr.count != 0){
+            parserArr.removeAll()
+        }
+  
         //bstopArsno 값이 없는 경우도 존재. 그러므로 키값으로 부적합. 다른 방안 생각해 볼것
         //url을 모두 생성하여 비동기적으로 파서 진행
         for i in 0..<bstopNum.count {
@@ -79,28 +125,47 @@ class xmlBStopList:NSObject, XMLParserDelegate {
             }
 
         }
-
-        //파서 비동기 작성
         
+        
+        //파서 비동기 작성
+        //성공 했을 때
         DispatchQueue.global().async {
+            
+            //self.isThreadStop = true
 
-            for i in 0..<3{
-                self.bStopData.append(BStopInfo())
-                
-                print(String(i) + "번째 parser")
-                
-                if(self.parserUrl[i] != nil){
-                    self.parserArr.append(XMLParser(contentsOf: self.parserUrl[i]!))
+            for i in 0..<self.parserUrl.count{
+                if(self.isThreadStop){
+                    
+                    print(String(i) + "번째 parser")
+                    
+                    if(self.parserUrl[i] != nil){
+                        self.parserArr.append(XMLParser(contentsOf: self.parserUrl[i]!))
+                    }
+                    else{
+                        self.parserArr.append(nil)
+                    }
+                }else{
+                    break
                 }
             }
-            
+
             DispatchQueue.main.async {
-                for i in 0..<self.parserArr.count{
-                    print(String(i) + "번째 parse")
-                    self.parserArr[i]?.parse()
-                    
-                    print(self.bStopData[i].bstopId)
+                if(self.isThreadStop){
+                    for i in 0..<self.parserArr.count{
+                        self.bStopData.append(BStopInfo())
+                        
+                        if(self.parserArr[i] != nil){
+                            print(String(i) + "번째 parse")
+                            self.parserArr[i]?.delegate = self
+                            self.parserArr[i]?.parse()
+                            
+                            print("main start")
+                            print(self.bStopData[i].bstopId)
+                        }
+  
+                    }
                 }
+
             }
 
         }
@@ -108,7 +173,7 @@ class xmlBStopList:NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-
+        
         if(elementName == "bstopArsno"){
             isbstopArsno = true
         }else if(elementName == "bstopId"){
@@ -143,38 +208,54 @@ class xmlBStopList:NSObject, XMLParserDelegate {
         }
     }
     
-    //arsNo값이 없는 경우도 존재. 키값을 정할 것(데이터가 없어서 append로 생성하지 못해 범위를 넘어섬)
-    var isAction: Bool = false
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        
+
         if isbstopArsno{
-            //bStopData[bStopData.count - 1].bstopArsno = string
-            
-//            isAction = true
-//            bStopData.append(BStopInfo())
-            bStopData[bStopData.count - 1].bstopArsno = string
-            
+            if(isSelectBStop){
+                bStopOneData.bstopArsno = string
+            }else{
+                bStopData[bStopData.count - 1].bstopArsno = string
+            }
+
         }else if isbstopId{
-//            if(!isAction){
-//                bStopData.append(BStopInfo())
-//            }
+            if(isSelectBStop){
+                bStopOneData.bstopId = string
+            }else{
             bStopData[bStopData.count - 1].bstopId = string
-            isAction = false
+            }
+ 
         }else if isbstopNm{
+            if(isSelectBStop){
+                bStopOneData.bstopNm = string
+            }else{
             bStopData[bStopData.count - 1].bstopNm = string
+            }
             
         }else if isgpsX{
+            if(isSelectBStop){
+                bStopOneData.gpsX = string
+            }else{
             bStopData[bStopData.count - 1].gpsX = string
+            }
+            
         }else if isgpsY{
+            if(isSelectBStop){
+                bStopOneData.gpsY = string
+            }else{
             bStopData[bStopData.count - 1].gpsY = string
+            }
+            
         }else if isstoptype{
+            if(isSelectBStop){
+                bStopOneData.stoptype = string
+            }else{
             bStopData[bStopData.count - 1].stoptype = string
+            }
         }
 
     }
-    
-    
+
 }
 
 class BStopInfo{

@@ -57,7 +57,7 @@ class ViewController: UIViewController, XMLParserDelegate {
         
     }
     
-    @IBAction func returned(segue: UIStoryboardSegue){
+    @IBAction func mainReturned(segue: UIStoryboardSegue){
         
     }
     

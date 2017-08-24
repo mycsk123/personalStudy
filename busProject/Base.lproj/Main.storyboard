@@ -93,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kpm-6l-V6G" id="PCn-ye-evt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnc-Oy-j0c">
@@ -133,7 +133,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="이전"/>
                                 <connections>
-                                    <segue destination="FZR-c5-cve" kind="unwind" unwindAction="returnedWithSegue:" id="uZx-Kw-1Sk"/>
+                                    <segue destination="FZR-c5-cve" kind="unwind" unwindAction="mainReturnedWithSegue:" id="xLp-LJ-f9w"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkN-Ep-Y8E">
@@ -217,7 +217,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="이전"/>
                                 <connections>
-                                    <segue destination="GUg-vr-d40" kind="unwind" unwindAction="returnedWithSegue:" id="ip5-ao-bLm"/>
+                                    <action selector="btnPrev:" destination="ixC-G5-HPm" eventType="touchUpInside" id="V2m-lX-SoW"/>
+                                    <segue destination="GUg-vr-d40" kind="unwind" unwindAction="BSearchViewReturnedWithSegue:" id="3B7-xe-H8n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,17 +246,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VWn-bC-yK4">
-                                <rect key="frame" x="16" y="120" width="343" height="414"/>
+                                <rect key="frame" x="16" y="66" width="343" height="440"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJn-QV-Z5a">
+                                <rect key="frame" x="24" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="이전"/>
+                                <connections>
+                                    <segue destination="5VC-f5-VWi" kind="unwind" unwindAction="BRouteidViewReturnedWithSegue:" id="iMH-fG-MdP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-jH-hhy">
+                                <rect key="frame" x="16" y="537" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="BStopMap" destination="VWn-bC-yK4" id="l9a-2z-4kS"/>
+                        <outlet property="lbBStopInfo" destination="9Lg-jH-hhy" id="GfX-99-kug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrt-vL-79I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5VC-f5-VWi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2512.8000000000002" y="62.518740629685162"/>
         </scene>

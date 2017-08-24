@@ -24,6 +24,9 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
         busRouteid.searchBusNum(routeId: routeId)
         print(busRouteid.busRouteidData.count)
         
+        //모든 노선을 파싱하기 때문에 일일트래픽을 넘어서는 상황 발생.
+        //bStopList.searchBStop(bstopNum: busRouteid.busRouteidData)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -61,10 +64,20 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
             let busStopSelect = segue.destination as! BStopMapViewController
             busStopSelect.arsno = busRouteid.busRouteidData[(indexPath?.row)!].arsNo
             busStopSelect.bstopnm = busRouteid.busRouteidData[(indexPath?.row)!].bstopnm
-            busStopSelect.busRouteid = busRouteid
             
         }
     }
+    
+    
+    @IBAction func btnPrev(_ sender: UIButton) {
+        //bStopList.isThreadStop = false
+    }
+    
+    @IBAction func BRouteidViewReturned(segue: UIStoryboardSegue){
+
+    }
+    
+
    
 
 

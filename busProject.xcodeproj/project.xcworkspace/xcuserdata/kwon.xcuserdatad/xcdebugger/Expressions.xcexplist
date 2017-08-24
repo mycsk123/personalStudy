@@ -3,6 +3,47 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "ViewController.btnBusNum(UIButton) -&gt; ():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "busInfo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "xmlBStopList.(searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ()).(closure #1):BusStop.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isThreadStop">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "xmlBStopList.searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ():BusStop.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parserArr">
+            </PersistentString>
+            <PersistentString
+               value = "parserUrl">
+            </PersistentString>
+            <PersistentString
+               value = "url">
+            </PersistentString>
+            <PersistentString
+               value = "xmlBStop">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "xmlBStopList.(searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ()).(closure #1).(closure #1):BusStop.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bStopData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "xmlBusInfo.parser(XMLParser, foundCharacters : String) -&gt; ():BusInfo.swift">
          <PersistentStrings>
             <PersistentString
@@ -16,25 +57,6 @@
             </PersistentString>
             <PersistentString
                value = "xmlErrMsg">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "xmlBStopList.searchBStop(bstopNum : [BusInfoByRouteid]) -&gt; ():BusStop.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "xmlBStop">
-            </PersistentString>
-            <PersistentString
-               value = "url">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ViewController.btnBusNum(UIButton) -&gt; ():ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "busInfo">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
