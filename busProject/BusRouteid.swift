@@ -81,7 +81,7 @@ class xmlBusInfoByRouteid:NSObject, XMLParserDelegate{
     }
     
     func bRouteReload(routeId: String, tbRouteResult: UITableView) -> Bool{
-        
+
         xmlBusRoute = endPoint + "busInfoRoute?serviceKey=" + serviceKey + "&lineid=" + routeId
         
         print(xmlBusRoute)

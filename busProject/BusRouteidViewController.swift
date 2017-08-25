@@ -13,6 +13,20 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
 //    let date = Date()
 //    let dateFormatter = DateFormatter()
     
+    @IBOutlet var PopUpBusInfo: UIView!
+    
+    //popupview 데이터
+    
+    @IBOutlet weak var imgPBStyle: UIImageView!
+
+    @IBOutlet weak var lbPBusNum: UILabel!
+    
+    @IBOutlet weak var lbPBStop: UILabel!
+  
+    @IBOutlet weak var lbPBusTime: UILabel!
+    
+    @IBOutlet weak var lbPHeadway: UILabel!
+    
     var routeId: String = ""
     var busInfo: BusInfos = BusInfos()
     var busRouteid: xmlBusInfoByRouteid = xmlBusInfoByRouteid()
@@ -127,8 +141,10 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     @IBAction func btnReload(_ sender: UIButton) {
-        //데이터 로딩 글자가 갱신 안되는 이유는??
-        //lbUpdateTime.text = "데이터 로딩 중"
+        //텍스트가 바뀌지 않는 이유 모르겠음.
+//        lbUpdateTime.text = "데이터 로딩 중"
+//        lbUpdateTime.setNeedsDisplay()
+
         
         let result:Bool = busRouteid.bRouteReload(routeId: routeId, tbRouteResult: tbRouteResult)
         
@@ -136,8 +152,40 @@ class BusRouteidViewController: UIViewController, UITableViewDelegate, UITableVi
             lbUpdateTime.text = timeSet()
         }else{
             lbUpdateTime.text = "데이터 로딩 실패"
+            
         }
+        //lbUpdateTime.setNeedsDisplay()
         
+    }
+    
+    
+    @IBAction func btnPopBusInfo(_ sender: UIButton) {
+        self.view.addSubview(PopUpBusInfo)
+        PopUpBusInfo.center = self.view.center
+        
+        imgPBStyle.image = busStyleDeff(busStyle: busInfo.bustype)
+        
+        lbPBusNum.text = busInfo.buslinenum
+        lbPBStop.text = busInfo.startpoint + " ↔ " + busInfo.endpoint
+        
+        lbPBusTime.text = "첫차 : " + busInfo.firsttime
+            + "\n막차 : " + busInfo.endtime
+        lbPBusTime.numberOfLines = 2
+        
+        lbPHeadway.text = "기본 : " + busInfo.headway + "분"
+            + "\n일반 : " + busInfo.headwayNorm + "분"
+            + "\n휴일 : " + busInfo.headwayHoli + "분"
+            + "\n출퇴근 : " + busInfo.headwayPeak + "분"
+        
+        lbPHeadway.numberOfLines = 4
+
+   
+        
+    }
+    
+    @IBAction func btnPopBInfoClose(_ sender: UIButton) {
+        
+        PopUpBusInfo.removeFromSuperview()
     }
     
     func timeSet() -> String{

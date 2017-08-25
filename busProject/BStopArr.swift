@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class xmlBStopBList:NSObject, XMLParserDelegate {
     
@@ -82,7 +83,7 @@ class xmlBStopBList:NSObject, XMLParserDelegate {
     }
     
     //새로고침
-    func bBStopArrBusReload(bstopId: String, lineId: String){
+    func bBStopArrBusReload(bstopId: String, lineId: String) -> Bool {
         xmlBStopABus = endPoint + "busStopArr?serviceKey=" + serviceKey + "&bstopid=" + bstopId + "&lineid=" + lineId
         
         let url = URL(string: xmlBStopABus)
@@ -95,12 +96,12 @@ class xmlBStopBList:NSObject, XMLParserDelegate {
                 self.parser?.delegate = self
                 self.parser?.parse()
                 
-                //uiLB.reloadInputViews()
+                print("새로고침 실행")
                 
             }
             
         }
-
+        return true
         
     }
 

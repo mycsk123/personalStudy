@@ -16,6 +16,8 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lbBStopInfo: UILabel!
 
     @IBOutlet weak var lbArrBusTime: UILabel!
+        
+    @IBOutlet weak var lbUpdateTime: UILabel!
     
     var busRouteid: xmlBusInfoByRouteid? = nil
     
@@ -58,6 +60,9 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
         
         lbArrBusTime.textColor = UIColor.red
         lbArrBusTime.text = temp1stBus + "분 전 | " + temp2stBus + "분 전"
+        
+        lbUpdateTime.textColor = UIColor.darkGray
+        lbUpdateTime.text = timeSet()
 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -93,7 +98,56 @@ class BStopMapViewController: UIViewController, CLLocationManagerDelegate {
  
     
     @IBAction func btnReload(_ sender: UIButton) {
-        bStopBList.bBStopArrBusReload(bstopId: tempBstopId, lineId: lineId, uiLB: lbArrBusTime as! UILabel)
+        lbUpdateTime.text = "데이터 로딩 중"
+        //뷰 다시 그리기
+        lbUpdateTime.setNeedsDisplay()
+        
+        let result:Bool = bStopBList.bBStopArrBusReload(bstopId: tempBstopId, lineId: lineId)
+        
+        if(result){
+            lbUpdateTime.text = timeSet()
+        }else{
+            lbUpdateTime.text = "데이터 로딩 실패"
+        }
+        lbUpdateTime.setNeedsDisplay()
+        
+        if((arsno != nil) || (arsno != "")){
+            var tGpsX: Double = Double(bstopList.bStopOneData.gpsX)!
+            var tGpsY: Double = Double(bstopList.bStopOneData.gpsY)!
+            
+            setAnnotation(latitude: tGpsY, longitude: tGpsX, delta: 0.005, title: bstopnm, subtitle: arsno)
+            
+            lbBStopInfo.text = bstopnm + " | " + arsno
+        }else{
+            //arsNo값이 없을 경우 1번에 정류장의 좌표를 찾을 수 없음
+            lbBStopInfo.text = "죄송합니다. 공사중입니다."
+        }
+
+        
+        
+    }
+    
+    @IBAction func btnMyPlace(_ sender: UIButton) {
+        BStopMap.showsUserLocation = true
+        let myplace = BStopMap.userLocation.coordinate
+        
+        let tempX = myplace.longitude
+        let tempY = myplace.latitude
+        
+        goLocation(latitude: tempY, longitude: tempX, delta: 0.005)
+
+    }
+    
+    
+    func timeSet() -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let time = dateFormatter.string(from: date)
+        
+        let timeTemp:String = "업데이트 시간 : " + time
+        
+        return timeTemp
     }
 
     
